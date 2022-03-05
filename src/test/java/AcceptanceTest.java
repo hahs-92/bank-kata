@@ -1,8 +1,8 @@
-import org.junit.Test;
+//import org.junit.Test;
 
 public class AcceptanceTest {
 
-    @Test
+    //@Test
     public void shouldWhatever() {
 
     }
