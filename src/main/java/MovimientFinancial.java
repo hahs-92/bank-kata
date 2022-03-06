@@ -1,6 +1,5 @@
 import ValueObject.Date;
 
-import java.time.LocalDate;
 
 public class MovimientFinancial {
     private double credit;

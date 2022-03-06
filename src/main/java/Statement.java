@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Statement {
     private final Balance balance;
-    private List<MovimientFinancial> movimientFinancials;
+    private ListMovimientsFinancial movimientsFinancial;
 
     public Statement() {
         this.balance = new Balance();
-        this.movimientFinancials = new ArrayList<>();
+        this.movimientsFinancial = new ListMovimientsFinancial();
     }
 
     public  Statement(Balance balance) {
@@ -18,22 +18,21 @@ public class Statement {
 
     public void doDeposit(double amount, String date) {
         this.balance.increaseBalance(amount);
-        this.movimientFinancials
-                .add(new MovimientFinancial(amount, 0, this.balance.getBalance(), new Date(date)));
+        this.movimientsFinancial
+                .addMovimientFinancial(
+                        new MovimientFinancial(amount, 0, this.balance.getBalance(), new Date(date))
+                );
     }
 
     public void doWithDraw(double amount, String date) {
         this.balance.deductBalance(amount);
-        this.movimientFinancials
-                .add(new MovimientFinancial(0,amount,  this.balance.getBalance(), new Date(date)));
-    }
-
-    public double getBalance() {
-        return this.balance.getBalance();
+        this.movimientsFinancial
+                .addMovimientFinancial(
+                        new MovimientFinancial(0,amount,  this.balance.getBalance(), new Date(date))
+                );
     }
 
     public List<MovimientFinancial> listMovimientsFinancial() {
-        return this.movimientFinancials;
+        return this.movimientsFinancial.showMovimientsFinancial();
     }
-
 }
